@@ -6,7 +6,8 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const btnSearch = document.querySelector('.search-form');
 const input = document.querySelector('.search-form__input');
 const gallery = document.querySelector('.gallery');
-const btnLoadMore = document.querySelector('.load-more')
+const btnLoadMore = document.querySelector('.load-more');
+const message = document.querySelector('.end-collection-text');
 
 btnSearch.addEventListener('submit', searchHandler);
 btnLoadMore.addEventListener('click', loadingPhoto)
@@ -55,6 +56,8 @@ function loadingPhoto() {
 
 			if (firstPage >= totalPages) {
 				btnLoadMore.style.display = "none";
+				message.classList.remove('hide-it');
+
 			}
 
 			imgRender(res);
