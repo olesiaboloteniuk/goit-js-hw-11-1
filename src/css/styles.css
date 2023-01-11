@@ -76,8 +76,11 @@ body {
 .search-form__button {
 	border-radius: 50px;
 	padding: 5px;
+	border:  #ea6fac;
 	background-color: #f375be;
-	border-color: #c6146d;
+	border-color: #ea6fac;
+	color: #fdf8fb;
+
 
 }
 
