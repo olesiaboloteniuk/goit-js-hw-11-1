@@ -17,6 +17,7 @@ let firstPage = 1;
 btnLoadMore.setAttribute("disabled", true);
 
 
+
 function searchHandler(ev) {
 	ev.preventDefault();
 	btnLoadMore.removeAttribute("disabled");
@@ -28,9 +29,12 @@ function searchHandler(ev) {
 	
 			if (result.total === 0) {
 				Notiflix.Notify.failure(`Sorry, there are no images matching your search query. Please try again.`)
+
 			}
-			imgRender(result)
-			btnLoadMore.classList.remove('hide-it')
+			else {
+				imgRender(result)
+				btnLoadMore.classList.remove('hide-it')
+			}
 
 		}
 	)
