@@ -34,7 +34,7 @@ body {
 			padding: 5px;
 			background-color: #fdf8fb;
 			border-color: transparent;
-			
+			outline: transparent;
 }
 .gallery {
 	max-width: 1600px;
