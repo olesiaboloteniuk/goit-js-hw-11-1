@@ -18,13 +18,16 @@ btnLoadMore.setAttribute("disabled", true);
 btnLoadMore.classList.add("hide-it");
 message.classList.add("hide-it");
 
+const slbox = new simplelightbox('.gallery a');
 
 
 function searchHandler(ev) {
 	ev.preventDefault();
+	firstPage = 1;
 	btnLoadMore.removeAttribute("disabled");
 	btnLoadMore.classList.remove("hide-it");
 	gallery.innerHTML = "";
+	
 	searchingImg(inputValue,firstPage, limit).then(
 		result => {
 			console.log(result.hits);
@@ -46,8 +49,9 @@ function searchHandler(ev) {
 function imgRender(img) {
 	gallery.insertAdjacentHTML("beforeend", renderMarkup(img.hits))
 	// gallery.innerHTML = renderMarkup(img.hits);
-	new simplelightbox('.gallery a')
+	 slbox.refresh();
 	btnLoadMore.classList.remove("hide-it")
+	 
 }
 
 function inputHandler(event) {
