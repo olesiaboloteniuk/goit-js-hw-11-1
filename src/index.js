@@ -15,12 +15,15 @@ let inputValue = "";
 let limit = 40;
 let firstPage = 1;
 btnLoadMore.setAttribute("disabled", true);
+btnLoadMore.classList.add("hide-it");
+message.classList.add("hide-it");
 
 
 
 function searchHandler(ev) {
 	ev.preventDefault();
 	btnLoadMore.removeAttribute("disabled");
+	btnLoadMore.classList.remove("hide-it");
 	gallery.innerHTML = "";
 	searchingImg(inputValue,firstPage, limit).then(
 		result => {
@@ -28,12 +31,12 @@ function searchHandler(ev) {
 			const totalPages = result.totalHits / limit;
 	
 			if (result.total === 0) {
+				btnLoadMore.classList.add("hide-it");
 				Notiflix.Notify.failure(`Sorry, there are no images matching your search query. Please try again.`)
-
 			}
 			else {
-				imgRender(result)
-				btnLoadMore.classList.remove('hide-it')
+				imgRender(result);
+				btnLoadMore.classList.remove("hide-it");
 			}
 
 		}
@@ -43,7 +46,8 @@ function searchHandler(ev) {
 function imgRender(img) {
 	gallery.insertAdjacentHTML("beforeend", renderMarkup(img.hits))
 	// gallery.innerHTML = renderMarkup(img.hits);
- new simplelightbox('.gallery a')
+	new simplelightbox('.gallery a')
+	btnLoadMore.classList.remove("hide-it")
 }
 
 function inputHandler(event) {
@@ -60,7 +64,7 @@ function loadingPhoto() {
 
 			if (firstPage >= totalPages) {
 				btnLoadMore.style.display = "none";
-				message.classList.remove('hide-it');
+			
 
 			}
 
